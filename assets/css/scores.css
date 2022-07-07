@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.column-container {
+  border: 3px black dashed;
+  border-radius: 360px;
+}
