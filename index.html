@@ -4,11 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
   </head>
+
   <body>
-    <a href="./scores.html" target="_blank">View High Scores</a>
+    <header>
+      <nav class="navbar">
+        <h3>Time: 75s</h3>
+      </nav>
+      <a href="./scores.html">View High scores</a>
+    </header>
+
+    <!-- main content. This is where questions, start button, and answers will show up. -->
+    <main>
+      <section>
+        <div class="container-box">
+          <div class="main-content-title">
+            <h1 class="title-main-content">Coding Quiz Challenge!</h1>
+            <p id="directions">
+              Please answer the questions before the allotted time runs out.
+              Everytime you miss a question the time will decrease by 10
+              seconds. Good luck!
+            </p>
+            <div class="btn-container">
+              <button class="start-btn">Start Quiz</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- creating a section for the unordered list to go to so the answers can populate and the questions. Hide upon start-->
+
+      <section id="question-answer-container">
+        <div class="answer-container">
+          <h2 class="question-line">This is a placeholder for the questions</h2>
+          <ul class="answer-list">
+            <li class="answer-btn">
+              <button id="answer1" value="0">Answer1</button>
+            </li>
+            <li class="answer-btn">
+              <button id="answer2" value="1">Answer2</button>
+            </li>
+            <li class="answer-btn">
+              <button id="answer3" value="2">Answer3</button>
+            </li>
+            <li class="answer-btn">
+              <button id="answer4" value="3">Answer4</button>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- section for when the quiz is over, to see score and then ask for initials-->
+      <section id="completed-quiz">
+        <div class="completed-container">
+          <h2 id="all-done-text">You're Finished! Great Job!</h2>
+          <h3>Your final score is: <span id="final-score"></span></h3>
+          <p>
+            Enter your initials:
+            <span id="initial-box"
+              ><input placeholder="initials" id="initials"
+            /></span>
+            <button id="submit-score">Submit</button>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h4>Thanks for Playing! Game created by Dakota Jones</h4>
+    </footer>
+
+    <!-- javascript is linked here. -->
     <script src="./assets/js/questions.js"></script>
     <script src="./assets/js/logic.js"></script>
   </body>

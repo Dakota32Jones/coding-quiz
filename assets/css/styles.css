@@ -1,0 +1,65 @@
+* {
+  margin: 15px;
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-box {
+  display: flex;
+  justify-content: center;
+  border: 3px solid black;
+  border-radius: 25px;
+}
+
+.title-main-content {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+#directions {
+  max-width: 95%;
+}
+
+.btn-container {
+  display: flex;
+  position: relative;
+  border: 3px grey solid;
+  justify-content: center;
+}
+
+.start-btn {
+  /* can edit how we want the button to look later on */
+}
+
+.answer-container {
+  border: 3px black solid;
+  border-radius: 25px;
+}
+
+.question-line {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
+
+.answer-btn {
+  list-style: none;
+}
+
+.completed-container {
+  border: 3px black solid;
+  border-radius: 15px;
+}
+
+footer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+}
