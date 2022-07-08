@@ -1,65 +1,104 @@
-* {
-  margin: 15px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
+:root {
+  --hue-nuetral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
+}
+
+body {
+  --hue: var(var(--hue-nuetral));
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: row-reverse;
-  position: relative;
-  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
   align-items: center;
 }
 
-.container-box {
-  display: flex;
-  justify-content: center;
-  border: 3px solid black;
-  border-radius: 25px;
+.wrapper {
+  margin: 100px auto 0 auto;
+  max-width: 600px;
 }
 
-.title-main-content {
-  display: flex;
-  position: relative;
-  justify-content: center;
+/* Questions need to be hidden before you start the test. Only the start button needs to show */
+
+.hide {
+  display: none;
 }
 
-#directions {
-  max-width: 95%;
+.start {
+  text-align: center;
 }
 
-.btn-container {
-  display: flex;
-  position: relative;
-  border: 3px grey solid;
-  justify-content: center;
+.scores {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 25px;
+  font-weight: 500px;
 }
 
-.start-btn {
-  /* can edit how we want the button to look later on */
+.feedback {
+  font-style: italic;
+  font-size: 120%;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: burlywood;
+  border-top: 2px solid teal;
 }
 
-.answer-container {
-  border: 3px black solid;
-  border-radius: 25px;
+.timer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 25px;
+  font-weight: 500;
 }
 
-.question-line {
-  display: flex;
-  position: relative;
-  justify-content: center;
+a {
+  color: teal;
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-.answer-btn {
-  list-style: none;
+/* changing the have action on the view high scores button/link */
+
+a::hover {
+  color: yellow;
+  cursor: pointer;
 }
 
-.completed-container {
-  border: 3px black solid;
-  border-radius: 15px;
+button {
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 100%;
+  font-weight: 500;
+  background-color: aqua;
+  border-radius: 5px;
+  padding: 2px 10px;
+  color: black;
+  border: 10;
+  transition: background-color 0.3s;
 }
 
-footer {
-  display: flex;
-  position: relative;
-  justify-content: center;
+button:hover {
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.choices button {
+  display: block;
+}
+
+input[type="text"] {
+  font-size: size 100%;
 }

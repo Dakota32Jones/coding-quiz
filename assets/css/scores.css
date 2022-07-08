@@ -1,10 +1,14 @@
-header {
-  display: flex;
-  position: relative;
-  justify-content: center;
+ol {
+  padding-left: 0px;
+  max-height: 400px;
+  overflow: auto;
 }
 
-.column-container {
-  border: 3px black dashed;
-  border-radius: 360px;
+li {
+  padding: 5px;
+  list-style: decimal inside none;
+}
+
+li:nth-child(odd) {
+  background-color: lightgrey;
 }
