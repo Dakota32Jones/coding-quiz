@@ -27,10 +27,17 @@ body {
   max-width: 600px;
 }
 
+#time {
+  border-radius: 50%;
+  background-color: lightgrey;
+  margin: auto;
+  padding: 5px;
+}
+
 /* Questions need to be hidden before you start the test. Only the start button needs to show */
 
 .hide {
-  display: none;
+  /* display: none; this hide, hides the actual questions for me. */
 }
 
 .start {
