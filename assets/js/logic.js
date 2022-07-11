@@ -9,7 +9,7 @@ var initialsEl = document.querySelector("#initials");
 var QuestionTitle = document.querySelector("#question-title");
 var endScreen = document.querySelector("#end-screen");
 var startScreen = document.querySelector("#start-screen");
-var timeRemaining = 5;
+var timeRemaining = 75;
 var timer;
 var currentQuestion = 0;
 
@@ -36,6 +36,7 @@ startBtn.addEventListener("click", startQuiz);
 function renderQuestion() {
   var questionToRender = questions[currentQuestion];
   questionsEl.textContent = questionToRender.questionText;
+  questionsEl.removeAttribute("class");
 }
 
 // create buttons for the choices on the screen.
@@ -47,4 +48,30 @@ function renderAnswers() {
     choicesEl.textContent = choice;
     questionsEl.appendChild(choicesEl);
   });
+}
+
+function choiceClick() {
+  choicesEl.onclick = choiceClick;
+
+  if (this.value !== questions[currentQuestionIndex].answer) {
+    var time = questions.length * 10;
+
+    time -= 15;
+
+    if (time <= 0) {
+    }
+    timerEl.textContent = time;
+    feedbackEl.textContent = "Wrong Answer!";
+    feedbackEl.style.color = "red";
+    feedbackEl.style.fontSize = "400%";
+  } else {
+    feedbackEl.textContent = "Correct Answer!";
+    feedbackEl.style.color = "green";
+    feedbackEl.style.fontSize = "400%";
+  }
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function () {
+    feedbackEl.setAttribute("class", "feedback hide");
+  }),
+    1000;
 }

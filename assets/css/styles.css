@@ -37,7 +37,7 @@ body {
 /* Questions need to be hidden before you start the test. Only the start button needs to show */
 
 .hide {
-  /* display: none; this hide, hides the actual questions for me. */
+  display: none;
 }
 
 .start {
