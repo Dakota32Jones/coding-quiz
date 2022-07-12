@@ -12,6 +12,9 @@ var startScreen = document.querySelector("#start-screen");
 var timeRemaining = 75;
 var timer;
 var currentQuestion = 0;
+var question = questions[currentQuestion];
+var finalScoreEL = document.querySelector("#final-score");
+var highscores = [];
 
 // setting a countdown timer for the game
 function countdown() {
@@ -41,37 +44,46 @@ function renderQuestion() {
 
 // create buttons for the choices on the screen.
 function renderAnswers() {
-  var question = questions[currentQuestion];
+  console.log(question);
   var choicesToRender = question.choices;
   Object.values(choicesToRender).forEach(function (choice, index) {
     var choicesEl = document.createElement("button");
     choicesEl.textContent = choice;
     questionsEl.appendChild(choicesEl);
+    choicesEl.setAttribute("value", choice);
+    choicesEl.onclick = choiceClick;
   });
 }
-
+// getting the next question and if the user clicks on the wrong choice then the time decreases by 15 seconds and the next questions appears.
 function choiceClick() {
-  choicesEl.onclick = choiceClick;
-
-  if (this.value !== questions[currentQuestionIndex].answer) {
-    var time = questions.length * 10;
-
-    time -= 15;
-
-    if (time <= 0) {
+  if (this.value !== questions[currentQuestion].answer) {
+    timeRemaining -= 15;
+    if (timeRemaining < 0) {
+      timeRemaining = 0;
     }
-    timerEl.textContent = time;
-    feedbackEl.textContent = "Wrong Answer!";
-    feedbackEl.style.color = "red";
-    feedbackEl.style.fontSize = "400%";
+    feedbackEl.removeAttribute("class");
+    feedbackEl.textContent = "Wrong Answer";
   } else {
-    feedbackEl.textContent = "Correct Answer!";
-    feedbackEl.style.color = "green";
-    feedbackEl.style.fontSize = "400%";
+    feedbackEl.removeAttribute("class");
+    feedbackEl.textContent = "Correct";
   }
-  feedbackEl.setAttribute("class", "feedback");
-  setTimeout(function () {
-    feedbackEl.setAttribute("class", "feedback hide");
-  }),
-    1000;
+  currentQuestion++;
+  if (currentQuestion === questions.length) {
+    console.log("End Game");
+    endGame();
+  }
+  if (currentQuestion !== questions.length) {
+    renderQuestion();
+    renderAnswers();
+  }
 }
+//  once the game ends, the scoreboard shows up for the user to enter their initials and score.
+function endGame() {
+  endScreen.removeAttribute("class");
+  feedbackEl.setAttribute("class", "hide");
+  clearInterval(timer);
+  finalScoreEL.textContent = timeRemaining;
+  questionsEl.setAttribute("class", "hide");
+}
+
+function storeHighScore() {}
