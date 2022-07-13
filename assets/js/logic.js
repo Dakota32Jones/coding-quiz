@@ -14,7 +14,6 @@ var timer;
 var currentQuestion = 0;
 var question = questions[currentQuestion];
 var finalScoreEL = document.querySelector("#final-score");
-var highscores = [];
 
 // setting a countdown timer for the game
 function countdown() {
@@ -86,4 +85,21 @@ function endGame() {
   questionsEl.setAttribute("class", "hide");
 }
 
-function storeHighScore() {}
+function storeHighScore() {
+  var scoreToAdd = {
+    name: initialsEl.value,
+    score: timeRemaining,
+  };
+
+  var allScores = JSON.parse(localStorage.getItem("highscores"));
+  console.log(scoreToAdd);
+
+  console.log(allScores);
+  if (!allScores) {
+    allScores = [];
+  }
+  allScores.push(scoreToAdd);
+  localStorage.setItem("highscore", JSON.stringify(allScores));
+}
+
+submitBtn.addEventListener("click", storeHighScore);

@@ -1,23 +1,32 @@
 // save and clear high scores and retrieve scores from local storage
+var wrapperContainer = document.getElementsByClassName("wrapper");
+clrBtn = document.getElementById("#clear");
 
-function printHighScores() {
-  var highscores = JSON.parse(window.localStorage.getItem("higscores")) || [];
+function displayScore() {
+  var playerScore = JSON.parse(window.localStorage.getItem("highscores")) || [];
+  console.log(playerScore);
 
-  highscores.sort(function (a, b) {
-    return b.score - a.score;
-  });
+  if (!playerScore) {
+    displayScore = [];
+  }
 
-  highscores.forEach(function (score) {
-    var liTag = createElement("li");
-    console.log(createElement);
-    liTag.textContent = score.playerInitials + "-" + score.score;
-  });
+  localStorage.setItem("highscores", JSON.stringify(playerScore));
+
+  playerScore.push(displayScore);
+  console.log(playerScore);
 }
 
-function clearHighscores() {
-  window.localStorage.removeItem("higscores");
+function showScores() {
+  var liTag = document.getElementById("#highscores");
+  liTag = document.createElement("li");
+  liTag.textContent = initialsEl;
+  wrapperContainer.appendChild(liTag);
+}
+
+function clearScore(e) {
+  e.preventDefault();
+  window.localStorage.removeItem("highscores");
   window.localStorage.reload();
-  document.getElementById("clear").onclick = clearHighscores;
 }
 
-printHighScores();
+displayScore();

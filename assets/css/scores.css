@@ -1,3 +1,7 @@
+.wrapper {
+  border: dashed 2px lightblue;
+}
+
 ol {
   padding-left: 0px;
   max-height: 400px;
@@ -7,6 +11,7 @@ ol {
 li {
   padding: 5px;
   list-style: decimal inside none;
+  border: 2px dashed lavender;
 }
 
 li:nth-child(odd) {
